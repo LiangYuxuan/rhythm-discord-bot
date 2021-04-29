@@ -1,9 +1,13 @@
 import Discord from 'discord.js';
 import pino from 'pino';
-import {prefix, token} from './config.json';
+import dotenv from 'dotenv';
 
 const client = new Discord.Client();
 const logger = pino();
+
+dotenv.config();
+const prefix = process.env.PREFIX ?? '!';
+const token = process.env.TOKEN;
 
 client.once('ready', () => {
     logger.info('Server ready!');
