@@ -1,16 +1,29 @@
-import pino from 'pino';
+import logger from './logger';
 import dotenv from 'dotenv';
 import discord from './discord';
 import express from './express';
+import {bootstrap} from 'global-agent';
+import {exit} from 'process';
 
-const logger = pino();
+if (process.env.NODE_ENV === 'development') {
+    bootstrap();
+}
+
 dotenv.config();
 
-const prefix = process.env.PREFIX ?? '!';
-const token = process.env.TOKEN;
+process.on('unhandledRejection', (error) => {
+    logger.error('Unhandled promise rejection: %o', error);
+});
 
 if (!process.env.NO_DISCORD) {
-    discord(prefix, token).then(() => {
+    const token = process.env.TOKEN;
+
+    if (token === undefined) {
+        logger.fatal('Missing TOKEN for Discord Token in .env.');
+        exit(1);
+    }
+
+    discord(token).then(() => {
         logger.info('Discord server ready!');
     });
 }

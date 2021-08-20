@@ -1,12 +1,14 @@
 import Discord from 'discord.js';
-import pino from 'pino';
+import logger from './../logger';
+import commands from './commands';
 
-export default (prefix: string, token: string | undefined): Promise<void> => {
+export default (token: string): Promise<void> => {
     return new Promise((resolve) => {
-        const logger = pino();
-        const client = new Discord.Client();
+        const client = new Discord.Client({
+            intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES],
+        });
 
-        client.once('ready', resolve);
+        client.once('ready', () => resolve());
 
         client.on('shardError', (error) => {
             logger.error('A websocket connection encountered an error: %o', error);
@@ -16,18 +18,16 @@ export default (prefix: string, token: string | undefined): Promise<void> => {
             logger.error('Client error: %o', error);
         });
 
-        process.on('unhandledRejection', (error) => {
-            logger.error('Unhandled promise rejection: %o', error);
-        });
+        client.on('interactionCreate', async (interaction) => {
+            if (!interaction.isCommand()) return;
 
-        client.on('message', (message) => {
-            if (!message.content.startsWith(prefix) || message.author.bot) return;
+            if (!commands.has(interaction.commandName)) return;
 
-            const args = message.content.slice(prefix.length).trim().split(/ +/);
-            const command = args.shift()?.toLowerCase();
-
-            if (command === 'ping') {
-                message.channel.send('Pong.');
+            try {
+                await commands.get(interaction.commandName)?.execute(interaction);
+            } catch (error) {
+                logger.error(error);
+                return interaction.reply({content: 'There was an error while executing this command!', ephemeral: true});
             }
         });
 
