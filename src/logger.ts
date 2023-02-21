@@ -1,7 +1,9 @@
 import pino from 'pino';
 
 const logger = pino({
-    prettyPrint: true,
+    transport: {
+        target: 'pino-pretty',
+    },
 });
 
 export default logger;
