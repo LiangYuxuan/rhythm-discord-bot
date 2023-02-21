@@ -5,7 +5,7 @@ import commands from './commands';
 export default (token: string): Promise<void> => {
     return new Promise((resolve) => {
         const client = new Discord.Client({
-            intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES],
+            intents: [Discord.GatewayIntentBits.Guilds, Discord.GatewayIntentBits.GuildMessages],
         });
 
         client.once('ready', () => resolve());
@@ -18,7 +18,7 @@ export default (token: string): Promise<void> => {
             logger.error('Client error: %o', error);
         });
 
-        client.on('interactionCreate', async (interaction) => {
+        client.on(Discord.Events.InteractionCreate, async (interaction) => {
             if (!interaction.isCommand()) return;
 
             if (!commands.has(interaction.commandName)) return;
@@ -27,7 +27,7 @@ export default (token: string): Promise<void> => {
                 await commands.get(interaction.commandName)?.execute(interaction);
             } catch (error) {
                 logger.error(error);
-                return interaction.reply({content: 'There was an error while executing this command!', ephemeral: true});
+                await interaction.reply({content: 'There was an error while executing this command!', ephemeral: true});
             }
         });
 

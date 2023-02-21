@@ -1,5 +1,5 @@
 import {SlashCommandBuilder} from '@discordjs/builders';
-import {CommandInteraction} from 'discord.js';
+import {ChatInputCommandInteraction} from 'discord.js';
 
 const command = {
     data: new SlashCommandBuilder()
@@ -10,7 +10,7 @@ const command = {
                 .setDescription('The input to echo back')
                 .setRequired(true),
         ),
-    execute: async (interaction: CommandInteraction): Promise<void> => {
+    execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
         await interaction.reply(interaction.options.getString('input', true));
     },
 };
