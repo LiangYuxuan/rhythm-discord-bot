@@ -1,17 +1,11 @@
-import {REST} from '@discordjs/rest';
-import {Routes} from 'discord-api-types/v9';
+import { REST, Routes } from 'discord.js';
 import dotenv from 'dotenv';
-import {bootstrap} from 'global-agent';
-import {exit} from 'process';
+import { exit } from 'process';
 import yargs from 'yargs';
 import logger from '../logger';
 import commands from '../discord/commands';
 
-import type {Command} from './../discord/commands/index';
-
-if (process.env.NODE_ENV === 'development') {
-    bootstrap();
-}
+import type { Command } from '../discord/commands/index';
 
 dotenv.config();
 
@@ -27,7 +21,7 @@ if (clientID === undefined) {
     exit(1);
 }
 
-const rest = new REST({version: '9'}).setToken(token);
+const rest = new REST({ version: '9' }).setToken(token);
 
 yargs(process.argv.slice(2))
     .command(['register', '$0'], 'register slash commands', () => {
@@ -43,12 +37,9 @@ yargs(process.argv.slice(2))
                 route = Routes.applicationGuildCommands(clientID, guildID);
             }
 
-            const payload: Command['data'][] = [];
-            for (const [, value] of commands) {
-                payload.push(value.data);
-            }
+            const payload: Command['data'][] = [...commands.values()].map((value) => value.data);
 
-            await rest.put(route, {body: payload});
+            await rest.put(route, { body: payload });
 
             logger.info('Successfully reloaded application (/) commands.');
         } catch (error) {
@@ -68,7 +59,7 @@ yargs(process.argv.slice(2))
                 route = Routes.applicationGuildCommands(clientID, guildID);
             }
 
-            await rest.put(route, {body: []});
+            await rest.put(route, { body: [] });
 
             logger.info('Successfully cleared application (/) commands.');
         } catch (error) {
@@ -76,5 +67,4 @@ yargs(process.argv.slice(2))
         }
     })
     .help('h')
-    .alias('h', 'help')
-    .argv;
+    .alias('h', 'help');

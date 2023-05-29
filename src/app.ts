@@ -1,13 +1,8 @@
-import logger from './logger';
 import dotenv from 'dotenv';
+import { exit } from 'process';
+import logger from './logger';
 import discord from './discord';
 import express from './express';
-import {bootstrap} from 'global-agent';
-import {exit} from 'process';
-
-if (process.env.NODE_ENV === 'development') {
-    bootstrap();
-}
 
 dotenv.config();
 
@@ -29,7 +24,7 @@ if (!process.env.NO_DISCORD) {
 }
 
 if (!process.env.NO_EXPRESS) {
-    const port: number = parseInt(process.env.PORT ?? '3000');
+    const port: number = parseInt(process.env.PORT ?? '3000', 10);
 
     express(port).then(() => {
         logger.info('Express server listening on port %d', port);
