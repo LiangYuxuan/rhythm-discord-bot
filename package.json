@@ -2,6 +2,7 @@
   "name": "rhythm-discord-bot",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "tsc --project ./",
     "start": "node dist/app.js",
