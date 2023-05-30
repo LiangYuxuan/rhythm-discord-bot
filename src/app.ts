@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import { exit } from 'process';
-import logger from './logger';
-import discord from './discord';
-import express from './express';
+import logger from './logger.js';
+import discord from './discord/index.js';
+import express from './express/index.js';
 
 dotenv.config();
 

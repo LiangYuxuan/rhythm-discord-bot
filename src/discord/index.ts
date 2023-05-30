@@ -1,6 +1,6 @@
 import Discord from 'discord.js';
-import logger from '../logger';
-import commands from './commands';
+import logger from '../logger.js';
+import commands from './commands/index.js';
 
 export default (token: string): Promise<void> => new Promise((resolve) => {
     const client = new Discord.Client({

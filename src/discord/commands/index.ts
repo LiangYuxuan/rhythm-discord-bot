@@ -1,8 +1,8 @@
 import { Collection, CommandInteraction } from 'discord.js';
 import type { ToAPIApplicationCommandOptions } from '@discordjs/builders';
 
-import echo from './echo';
-import ping from './ping';
+import echo from './echo.js';
+import ping from './ping.js';
 
 interface Command {
     data: {

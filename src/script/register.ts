@@ -2,8 +2,8 @@ import { REST, Routes } from 'discord.js';
 import dotenv from 'dotenv';
 import { exit } from 'process';
 import yargs from 'yargs';
-import logger from '../logger';
-import commands from '../discord/commands';
+import logger from '../logger.js';
+import commands from '../discord/commands/index.js';
 
 import type { Command } from '../discord/commands/index';
 
