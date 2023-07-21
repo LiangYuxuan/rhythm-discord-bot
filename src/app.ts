@@ -20,6 +20,10 @@ if (!process.env.NO_DISCORD) {
 
     discord(token).then(() => {
         logger.info('Discord server ready!');
+    }).catch((error) => {
+        console.error('Failed to start Discord server.');
+        console.error(error);
+        process.exit(1);
     });
 }
 
@@ -28,5 +32,9 @@ if (!process.env.NO_EXPRESS) {
 
     express(port).then(() => {
         logger.info('Express server listening on port %d', port);
+    }).catch((error) => {
+        console.error('Failed to start Express server.');
+        console.error(error);
+        process.exit(1);
     });
 }

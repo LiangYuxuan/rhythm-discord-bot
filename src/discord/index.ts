@@ -2,12 +2,14 @@ import Discord from 'discord.js';
 import logger from '../logger.js';
 import commands from './commands/index.js';
 
-export default (token: string): Promise<void> => new Promise((resolve) => {
+export default (token: string): Promise<void> => new Promise((resolve, reject) => {
     const client = new Discord.Client({
         intents: [Discord.GatewayIntentBits.Guilds, Discord.GatewayIntentBits.GuildMessages],
     });
 
-    client.once('ready', () => resolve());
+    client.once('ready', () => {
+        resolve();
+    });
 
     client.on('shardError', (error) => {
         logger.error('A websocket connection encountered an error: %o', error);
@@ -30,5 +32,5 @@ export default (token: string): Promise<void> => new Promise((resolve) => {
         }
     });
 
-    client.login(token);
+    client.login(token).catch(reject);
 });
