@@ -1,5 +1,4 @@
-import { Collection, CommandInteraction } from 'discord.js';
-import type { ToAPIApplicationCommandOptions } from '@discordjs/builders';
+import { Collection, CommandInteraction, SlashCommandBuilder } from 'discord.js';
 
 import echo from './echo.js';
 import ping from './ping.js';
@@ -8,7 +7,7 @@ interface Command {
     data: {
         name: string,
         description: string,
-        options?: ToAPIApplicationCommandOptions[]
+        options?: typeof SlashCommandBuilder.prototype.options,
     },
     execute(interaction: CommandInteraction): Promise<void>
 }
