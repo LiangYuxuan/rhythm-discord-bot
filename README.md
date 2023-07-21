@@ -10,7 +10,7 @@
 3. Copy .env.example and fill up your token, Application ID and Guild ID.
 4. Run following command.
    ```bash
-   npm i
+   pnpm install
    npx ts-node src/script/register.ts
-   npm run start
+   pnpm start
    ```
