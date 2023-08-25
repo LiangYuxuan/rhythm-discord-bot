@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
-    "@types/node": "^20.5.3",
+    "@types/node": "^20.5.6",
     "@types/yargs": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
@@ -30,6 +30,6 @@
     "nodemon": "^3.0.1",
     "pino-pretty": "^10.2.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   }
 }
