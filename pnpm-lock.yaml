@@ -15,8 +15,8 @@ dependencies:
     specifier: ^4.18.2
     version: 4.18.2
   pino:
-    specifier: ^8.15.4
-    version: 8.15.4
+    specifier: ^8.15.5
+    version: 8.15.5
   yargs:
     specifier: ^17.7.2
     version: 17.7.2
@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^3.0.1
     version: 3.0.1
   pino-pretty:
-    specifier: ^10.2.2
-    version: 10.2.2
+    specifier: ^10.2.3
+    version: 10.2.3
   ts-node:
     specifier: ^10.9.1
     version: 10.9.1(@types/node@20.8.2)(typescript@5.2.2)
@@ -2017,8 +2017,8 @@ packages:
       readable-stream: 4.3.0
       split2: 4.1.0
 
-  /pino-pretty@10.2.2:
-    resolution: {integrity: sha512-RvAdCQAU51MdVsJdvXX4Bipb52wwldXtOzlva1NT8q2d7tmgYWFIMLhoSnfx2Sr+Hi7BLGpR/n8wgrcq5G/ykA==}
+  /pino-pretty@10.2.3:
+    resolution: {integrity: sha512-4jfIUc8TC1GPUfDyMSlW1STeORqkoxec71yhxIpLDQapUu8WOuoz2TTCoidrIssyz78LZC69whBMPIKCMbi3cw==}
     hasBin: true
     dependencies:
       colorette: 2.0.16
@@ -2041,8 +2041,8 @@ packages:
     resolution: {integrity: sha512-KO0m2f1HkrPe9S0ldjx7za9BJjeHqBku5Ch8JyxETxT8dEFGz1PwgrHaOQupVYitpzbFSYm7nnljxD8dik2c+g==}
     dev: false
 
-  /pino@8.15.4:
-    resolution: {integrity: sha512-3s+SfSxeugMt8QeBVXprIJAgXuGDeGuHBfquXKEXKnpghlXzMGMjoa8tOSyzz00iBfQX3xlZvm2yJQ+d6SrVsg==}
+  /pino@8.15.5:
+    resolution: {integrity: sha512-KoTDSVRLiCWIJXTeAHNaflEXqsqCmyZkxfL09y+wT+NRo7j2Ieq30jBEC+GpE4HTQCQQyt3pDRhmwvCKjqzxfQ==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
