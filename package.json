@@ -1,16 +1,18 @@
 {
   "name": "rhythm-discord-bot",
   "version": "1.0.0",
-  "private": true,
+  "description": "",
   "type": "module",
   "scripts": {
     "build": "tsc --project ./",
-    "start": "node dist/app.js",
-    "dev": "NODE_ENV=development nodemon --watch 'src/' -e ts --exec 'ts-node' ./src/app.ts",
-    "dev:no-discord": "NO_DISCORD=1 NODE_ENV=development nodemon --watch 'src/' -e ts --exec 'ts-node' ./src/app.ts",
+    "start": "ts-node-esm src/app.ts",
+    "dev": "NODE_ENV=development ts-node-esm src/app.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix"
   },
+  "keywords": [],
+  "author": "Rhythm",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
