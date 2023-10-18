@@ -1,7 +1,7 @@
 import { Collection, CommandInteraction, SlashCommandBuilder } from 'discord.js';
 
-import echo from './echo.js';
-import ping from './ping.js';
+import echo from './echo.ts';
+import ping from './ping.ts';
 
 interface Command {
     data: {

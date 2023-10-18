@@ -1,40 +1,46 @@
-import dotenv from 'dotenv';
-import { exit } from 'process';
-import logger from './logger.js';
-import discord from './discord/index.js';
-import express from './express/index.js';
+import assert from 'node:assert';
 
-dotenv.config();
+import 'dotenv/config';
 
-process.on('unhandledRejection', (error) => {
-    logger.error('Unhandled promise rejection: %o', error);
+import Discord from 'discord.js';
+
+import logger from './logger.ts';
+import commands from './commands/index.ts';
+
+const token = process.env.TOKEN;
+
+assert(token !== undefined, 'Missing TOKEN for Discord Token');
+
+const client = new Discord.Client({
+    intents: [Discord.GatewayIntentBits.Guilds, Discord.GatewayIntentBits.GuildMessages],
 });
 
-if (!process.env.NO_DISCORD) {
-    const token = process.env.TOKEN;
+client.once('ready', () => {
+    logger.info('Discord client ready!');
+});
 
-    if (token === undefined) {
-        logger.fatal('Missing TOKEN for Discord Token in .env.');
-        exit(1);
+client.on('error', (error) => {
+    logger.error('Client error: %o', error);
+});
+
+client.on(Discord.Events.InteractionCreate, async (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+
+    if (!commands.has(interaction.commandName)) return;
+
+    try {
+        await commands.get(interaction.commandName)?.execute(interaction);
+    } catch (error) {
+        logger.error(error);
+        if (interaction.replied || interaction.deferred) {
+            await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+        } else {
+            await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+        }
     }
+});
 
-    discord(token).then(() => {
-        logger.info('Discord server ready!');
-    }).catch((error) => {
-        console.error('Failed to start Discord server.');
-        console.error(error);
-        process.exit(1);
-    });
-}
-
-if (!process.env.NO_EXPRESS) {
-    const port: number = parseInt(process.env.PORT ?? '3000', 10);
-
-    express(port).then(() => {
-        logger.info('Express server listening on port %d', port);
-    }).catch((error) => {
-        console.error('Failed to start Express server.');
-        console.error(error);
-        process.exit(1);
-    });
-}
+client.login(token).catch((error) => {
+    logger.error('Failed to login: %o', error);
+    process.exit(1);
+});

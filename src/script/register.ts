@@ -6,7 +6,7 @@ import 'dotenv/config';
 import { REST, Routes } from 'discord.js';
 import yargs from 'yargs';
 
-import commands, { Command } from '../discord/commands/index.ts';
+import commands, { Command } from '../commands/index.ts';
 
 const token = process.env.TOKEN;
 const clientID = process.env.CLIENT_ID;
