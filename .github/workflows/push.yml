@@ -43,17 +43,17 @@ jobs:
           tags: rhyster/rhythm-discord-bot:latest
           platforms: linux/amd64,linux/arm64,linux/arm/v7
 
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.REMOTE_HOST }}
-  #         port: ${{ secrets.REMOTE_PORT }}
-  #         username: ${{ secrets.REMOTE_USER }}
-  #         key: ${{ secrets.SERVER_SSH_KEY }}
-  #         script: |
-  #           docker pull rhyster/rhythm-discord-bot:latest
-  #           docker rmi $(docker images -f "dangling=true" -q) --force
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            docker pull rhyster/rhythm-discord-bot:latest
+            docker rmi $(docker images -f "dangling=true" -q) --force
