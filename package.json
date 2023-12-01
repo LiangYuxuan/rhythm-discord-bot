@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project ./",
-    "start": "ts-node-esm src/app.ts",
-    "dev": "NODE_ENV=development nodemon --watch 'src/' -e ts --exec 'ts-node' ./src/app.ts",
+    "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/app.ts",
+    "dev": "NODE_ENV=development nodemon --exec \"node --no-warnings=ExperimentalWarning --loader ts-node/esm src/app.ts\" -w src --ext js,mjs,json,ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix"
   },
