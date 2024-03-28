@@ -59,4 +59,4 @@ jobs:
             docker stop discord
             docker rm discord
             docker run -d --restart always --env-file discord.env --name discord rhyster/rhythm-discord-bot:latest
-            docker rmi $(docker images -f "dangling=true" -q) --force
+            docker image prune -f
