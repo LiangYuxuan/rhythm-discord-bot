@@ -40,7 +40,7 @@ client.on(Discord.Events.InteractionCreate, async (interaction) => {
     }
 });
 
-client.login(token).catch((error) => {
+client.login(token).catch((error: unknown) => {
     logger.error('Failed to login: %o', error);
     process.exit(1);
 });
