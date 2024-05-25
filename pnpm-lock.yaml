@@ -43,8 +43,8 @@ importers:
         specifier: ^18.0.0
         version: 18.0.0(@typescript-eslint/eslint-plugin@7.10.0(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint-plugin-import@2.27.5(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0))(eslint@8.57.0)
       nodemon:
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.1.1
+        version: 3.1.1
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@20.12.12)(typescript@5.4.5)
@@ -705,6 +705,7 @@ packages:
 
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
+    deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
 
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -873,8 +874,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  nodemon@3.1.0:
-    resolution: {integrity: sha512-xqlktYlDMCepBJd43ZQhjWwMw2obW/JRvkrLxq5RCNcuDDX1DbcPT+qT1IlIIdf+DhnWs90JpTMe+Y5KxOchvA==}
+  nodemon@3.1.1:
+    resolution: {integrity: sha512-k43xGaDtaDIcufn0Fc6fTtsdKSkV/hQzoQFigNH//GaKta28yoKVYXCnV+KXRqfT/YzsFaQU9VdeEG+HEyxr6A==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -1011,11 +1012,6 @@ packages:
 
   semver@6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
-    hasBin: true
-
-  semver@7.5.4:
-    resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
-    engines: {node: '>=10'}
     hasBin: true
 
   semver@7.6.0:
@@ -2175,14 +2171,14 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nodemon@3.1.0:
+  nodemon@3.1.1:
     dependencies:
       chokidar: 3.5.3
       debug: 4.3.4(supports-color@5.5.0)
       ignore-by-default: 1.0.1
       minimatch: 3.1.2
       pstree.remy: 1.1.8
-      semver: 7.5.4
+      semver: 7.6.0
       simple-update-notifier: 2.0.0
       supports-color: 5.5.0
       touch: 3.1.0
@@ -2314,10 +2310,6 @@ snapshots:
 
   semver@6.3.0: {}
 
-  semver@7.5.4:
-    dependencies:
-      lru-cache: 6.0.0
-
   semver@7.6.0:
     dependencies:
       lru-cache: 6.0.0
@@ -2340,7 +2332,7 @@ snapshots:
 
   simple-update-notifier@2.0.0:
     dependencies:
-      semver: 7.5.4
+      semver: 7.6.0
 
   slash@3.0.0: {}
 
