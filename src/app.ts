@@ -23,21 +23,22 @@ client.on('error', (error) => {
     logger.error('Client error: %o', error);
 });
 
-client.on(Discord.Events.InteractionCreate, async (interaction) => {
+client.on(Discord.Events.InteractionCreate, (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
     if (!commands.has(interaction.commandName)) return;
 
-    try {
-        await commands.get(interaction.commandName)?.execute(interaction);
-    } catch (error) {
-        logger.error(error);
-        if (interaction.replied || interaction.deferred) {
-            await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
-        } else {
-            await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-        }
-    }
+    commands
+        .get(interaction.commandName)
+        ?.execute(interaction)
+        .catch(async (error: unknown) => {
+            logger.error(error);
+            if (interaction.replied || interaction.deferred) {
+                await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+            } else {
+                await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+            }
+        });
 });
 
 client.login(token).catch((error: unknown) => {
