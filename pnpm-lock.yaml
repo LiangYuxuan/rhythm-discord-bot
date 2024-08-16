@@ -22,8 +22,8 @@ importers:
         version: 17.7.2
     devDependencies:
       '@types/node':
-        specifier: ^20.14.15
-        version: 20.14.15
+        specifier: ^20.15.0
+        version: 20.15.0
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
@@ -47,7 +47,7 @@ importers:
         version: 3.1.4
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@20.14.15)(typescript@5.5.4)
+        version: 10.9.2(@types/node@20.15.0)(typescript@5.5.4)
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -181,8 +181,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@20.14.15':
-    resolution: {integrity: sha512-Fz1xDMCF/B00/tYSVMlmK7hVeLh7jE5f3B7X1/hmV0MJBwE27KlS7EvD/Yp+z1lm8mVhwV5w+n8jOZG8AfTlKw==}
+  '@types/node@20.15.0':
+    resolution: {integrity: sha512-eQf4OkH6gA9v1W0iEpht/neozCsZKMTK+C4cU6/fv7wtJCCL8LEQ4hie2Ln8ZP/0YYM2xGj7//f8xyqItkJ6QA==}
 
   '@types/triple-beam@1.3.3':
     resolution: {integrity: sha512-6tOUG+nVHn0cJbVp25JFayS5UE6+xlbcNF9Lo9mU7U0zk3zeUShZied4YEQZjy1JBF043FSkdXw8YkUJuVtB5g==}
@@ -1154,8 +1154,8 @@ packages:
   undefsafe@2.0.5:
     resolution: {integrity: sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==}
 
-  undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+  undici-types@6.13.0:
+    resolution: {integrity: sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==}
 
   undici@6.13.0:
     resolution: {integrity: sha512-Q2rtqmZWrbP8nePMq7mOJIN98M0fYvSgV89vwl/BQRT4mDOeY2GXZngfGpcBBhtky3woM7G24wZV3Q304Bv6cw==}
@@ -1372,15 +1372,15 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@20.14.15':
+  '@types/node@20.15.0':
     dependencies:
-      undici-types: 5.26.5
+      undici-types: 6.13.0
 
   '@types/triple-beam@1.3.3': {}
 
   '@types/ws@8.5.10':
     dependencies:
-      '@types/node': 20.14.15
+      '@types/node': 20.15.0
 
   '@types/yargs-parser@20.2.1': {}
 
@@ -2402,14 +2402,14 @@ snapshots:
 
   ts-mixer@6.0.4: {}
 
-  ts-node@10.9.2(@types/node@20.14.15)(typescript@5.5.4):
+  ts-node@10.9.2(@types/node@20.15.0)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.8
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 20.14.15
+      '@types/node': 20.15.0
       acorn: 8.9.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -2452,7 +2452,7 @@ snapshots:
 
   undefsafe@2.0.5: {}
 
-  undici-types@5.26.5: {}
+  undici-types@6.13.0: {}
 
   undici@6.13.0: {}
 
