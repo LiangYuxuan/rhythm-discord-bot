@@ -5,10 +5,6 @@ import assert from 'node:assert';
 import 'dotenv/config';
 import { REST, Routes } from 'discord.js';
 
-import commands from '../commands/index.ts';
-
-import type { Command } from '../commands/index.ts';
-
 const token = process.env.TOKEN;
 const clientID = process.env.CLIENT_ID;
 const guildID = process.env.GUILD_ID ?? '';
@@ -18,7 +14,7 @@ assert(clientID !== undefined, 'Missing CLIENT_ID for Discord Application ID');
 
 const rest = new REST({ version: '10' }).setToken(token);
 
-console.info('Started refreshing application (/) commands.');
+console.info('Started clearing application (/) commands.');
 
 const route = guildID.length === 0 ? (
     Routes.applicationGuildCommands(clientID, guildID)
@@ -26,8 +22,6 @@ const route = guildID.length === 0 ? (
     Routes.applicationCommands(clientID)
 );
 
-const payload: Command['data'][] = [...commands.values()].map((value) => value.data);
+await rest.put(route, { body: [] });
 
-await rest.put(route, { body: payload });
-
-console.info('Successfully reloaded application (/) commands.');
+console.info('Successfully cleared application (/) commands.');
