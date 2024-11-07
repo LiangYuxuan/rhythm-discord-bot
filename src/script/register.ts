@@ -20,11 +20,9 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 console.info('Started refreshing application (/) commands.');
 
-const route = guildID.length === 0 ? (
-    Routes.applicationGuildCommands(clientID, guildID)
-) : (
-    Routes.applicationCommands(clientID)
-);
+const route = guildID.length === 0
+    ? Routes.applicationGuildCommands(clientID, guildID)
+    : Routes.applicationCommands(clientID);
 
 const payload: Command['data'][] = [...commands.values()].map((value) => value.data);
 
