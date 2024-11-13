@@ -1,6 +1,6 @@
 {
   "name": "rhythm-discord-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "private": true,
   "scripts": {
@@ -24,5 +24,5 @@
     "eslint": "^9.14.0",
     "typescript": "^5.6.3"
   },
-  "packageManager": "pnpm@9.12.3"
+  "packageManager": "pnpm@9.13.0"
 }
