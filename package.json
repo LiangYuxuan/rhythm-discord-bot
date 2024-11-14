@@ -2,6 +2,8 @@
   "name": "rhythm-discord-bot",
   "type": "module",
   "private": true,
+  "author": "Rhythm",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --project ./",
     "start": "tsx src/app.ts",
@@ -9,9 +11,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "keywords": [],
-  "author": "Rhythm",
-  "license": "MIT",
   "dependencies": {
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
