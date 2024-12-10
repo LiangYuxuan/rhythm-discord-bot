@@ -1,8 +1,3 @@
-import { core, node, browser } from '@rhyster/eslint-config';
+import { node } from '@rhyster/eslint-config';
 
-export default [
-    ...node.map((config) => ({
-        ...config,
-        files: ['src/**/*.ts'],
-    })),
-];
+export default node;
