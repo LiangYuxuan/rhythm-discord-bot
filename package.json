@@ -12,15 +12,15 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "discord.js": "^14.19.1",
+    "discord.js": "^14.19.2",
     "dotenv": "^16.5.0",
     "tsx": "^4.19.3"
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.7.20",
-    "@types/node": "^22.15.2",
+    "@types/node": "^22.15.3",
     "eslint": "^9.25.1",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@10.9.0"
+  "packageManager": "pnpm@10.10.0"
 }
