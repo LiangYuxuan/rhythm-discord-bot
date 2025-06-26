@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "discord.js": "^14.21.0",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.0",
     "tsx": "^4.20.3"
   },
   "devDependencies": {
@@ -22,5 +22,5 @@
     "eslint": "^9.29.0",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@10.12.3"
+  "packageManager": "pnpm@10.12.4"
 }
