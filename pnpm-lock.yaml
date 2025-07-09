@@ -12,8 +12,8 @@ importers:
         specifier: ^14.21.0
         version: 14.21.0
       dotenv:
-        specifier: ^17.1.0
-        version: 17.1.0
+        specifier: ^17.2.0
+        version: 17.2.0
       tsx:
         specifier: ^4.20.3
         version: 4.20.3
@@ -623,8 +623,8 @@ packages:
     resolution: {integrity: sha512-U5w41cEmcnSfwKYlLv5RJjB8Joa+QJyRwIJz5i/eg+v2Qvv6EYpCRhN9I2Rlf0900LuqSDg8edakUATrDZQncQ==}
     engines: {node: '>=18'}
 
-  dotenv@17.1.0:
-    resolution: {integrity: sha512-tG9VUTJTuju6GcXgbdsOuRhupE8cb4mRgY5JLRCh4MtGoVo3/gfGUtOMwmProM6d0ba2mCFvv+WrpYJV6qgJXQ==}
+  dotenv@17.2.0:
+    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
     engines: {node: '>=12'}
 
   enhanced-resolve@5.17.1:
@@ -1717,7 +1717,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  dotenv@17.1.0: {}
+  dotenv@17.2.0: {}
 
   enhanced-resolve@5.17.1:
     dependencies:
