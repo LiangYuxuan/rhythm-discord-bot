@@ -14,7 +14,7 @@
   "dependencies": {
     "discord.js": "^14.21.0",
     "dotenv": "^17.2.1",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.4"
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.8.2",
