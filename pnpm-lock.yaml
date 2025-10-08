@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       discord.js:
-        specifier: ^14.22.1
-        version: 14.22.1
+        specifier: ^14.23.0
+        version: 14.23.0
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -33,8 +33,8 @@ importers:
 
 packages:
 
-  '@discordjs/builders@1.11.2':
-    resolution: {integrity: sha512-F1WTABdd8/R9D1icJzajC4IuLyyS8f3rTOz66JsSI3pKvpCAtsMBweu8cyNYsIyvcrKAVn9EPK+Psoymq+XC0A==}
+  '@discordjs/builders@1.12.1':
+    resolution: {integrity: sha512-C5iNx2PgNj5MTZZ3WZeybJ7N0erYVBGDQpNPHZ4rCD21n9DejLpmQDTI8nxxGm3NapS3QwYHKZtHBEVPWBhhVw==}
     engines: {node: '>=16.11.0'}
 
   '@discordjs/collection@1.5.3':
@@ -583,11 +583,11 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  discord-api-types@0.38.20:
-    resolution: {integrity: sha512-wJSmFFi8eoFL/jIosUQLoXeCv7YK+l7joKmFCsnkx7HWSFt5xScNQdhvILLxC0oU6J5bK0ppR7GZ1d4NJScSNQ==}
+  discord-api-types@0.38.29:
+    resolution: {integrity: sha512-+5BfrjLJN1hrrcK0MxDQli6NSv5lQH7Y3/qaOfk9+k7itex8RkA/UcevVMMLe8B4IKIawr4ITBTb2fBB2vDORg==}
 
-  discord.js@14.22.1:
-    resolution: {integrity: sha512-3k+Kisd/v570Jr68A1kNs7qVhNehDwDJAPe4DZ2Syt+/zobf9zEcuYFvsfIaAOgCa0BiHMfOOKQY4eYINl0z7w==}
+  discord.js@14.23.0:
+    resolution: {integrity: sha512-0oYtQnsEnqabRAq4aiNA2+cmJ2MZ8+KiU2d0BJbUih8ZK+fn7qO/UUyINapjDvNMN1F/Al7D3lPGvPxsKc8e0w==}
     engines: {node: '>=18'}
 
   dotenv@17.2.3:
@@ -1117,12 +1117,12 @@ packages:
 
 snapshots:
 
-  '@discordjs/builders@1.11.2':
+  '@discordjs/builders@1.12.1':
     dependencies:
       '@discordjs/formatters': 0.6.1
       '@discordjs/util': 1.1.1
       '@sapphire/shapeshift': 4.0.0
-      discord-api-types: 0.38.20
+      discord-api-types: 0.38.29
       fast-deep-equal: 3.1.3
       ts-mixer: 6.0.4
       tslib: 2.8.1
@@ -1133,7 +1133,7 @@ snapshots:
 
   '@discordjs/formatters@0.6.1':
     dependencies:
-      discord-api-types: 0.38.20
+      discord-api-types: 0.38.29
 
   '@discordjs/rest@2.6.0':
     dependencies:
@@ -1142,7 +1142,7 @@ snapshots:
       '@sapphire/async-queue': 1.5.5
       '@sapphire/snowflake': 3.5.3
       '@vladfrangu/async_event_emitter': 2.4.6
-      discord-api-types: 0.38.20
+      discord-api-types: 0.38.29
       magic-bytes.js: 1.10.0
       tslib: 2.8.1
       undici: 6.21.3
@@ -1157,7 +1157,7 @@ snapshots:
       '@sapphire/async-queue': 1.5.5
       '@types/ws': 8.5.13
       '@vladfrangu/async_event_emitter': 2.4.6
-      discord-api-types: 0.38.20
+      discord-api-types: 0.38.29
       tslib: 2.8.1
       ws: 8.18.0
     transitivePeerDependencies:
@@ -1620,18 +1620,18 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  discord-api-types@0.38.20: {}
+  discord-api-types@0.38.29: {}
 
-  discord.js@14.22.1:
+  discord.js@14.23.0:
     dependencies:
-      '@discordjs/builders': 1.11.2
+      '@discordjs/builders': 1.12.1
       '@discordjs/collection': 1.5.3
       '@discordjs/formatters': 0.6.1
       '@discordjs/rest': 2.6.0
       '@discordjs/util': 1.1.1
       '@discordjs/ws': 1.2.3
       '@sapphire/snowflake': 3.5.3
-      discord-api-types: 0.38.20
+      discord-api-types: 0.38.29
       fast-deep-equal: 3.1.3
       lodash.snakecase: 4.1.1
       magic-bytes.js: 1.10.0
