@@ -56,5 +56,5 @@ jobs:
             docker pull rhyster/rhythm-discord-bot:latest
             docker stop discord
             docker rm discord
-            docker run -d --restart always --env-file discord.env --name discord rhyster/rhythm-discord-bot:latest
+            docker run -d --restart always --env-file ${{ secrets.REMOTE_TARGET }} --name discord rhyster/rhythm-discord-bot:latest
             docker image prune -f
